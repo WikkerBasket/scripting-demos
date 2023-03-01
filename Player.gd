@@ -17,6 +17,7 @@ var jumpHeight = 800
 var jumpSpeed = 900
 var shortHop = 350
 
+var isSlide = false
 var isCrouch = false
 var isWalk = true
 var isJump = true
@@ -45,7 +46,7 @@ func walk():
 	onTile.x = clamp(onTile.x, -speed, speed)
 
 func slide():
-	if Input.is_action_pressed("down") && onGround.is_colliding() == true:
+	if Input.is_action_pressed("down") && onGround.is_colliding():
 		isCrouch = true
 		canJump = false
 		isWalk = false
@@ -56,7 +57,10 @@ func slide():
 			dash.startDash(dashDuration)
 			onTile.x = dashSpeed
 		else:
+			isSlide = true
 			onTile.x = lerp(onTile.x, 0, slideFriction)
+	elif Input.is_action_pressed("down") && !onGround.is_colliding():
+		canJump = false
 	else:
 		canJump = true
 		isWalk = true
@@ -72,6 +76,7 @@ func jump():
 	#Check for gounded collisions
 	if onGround.is_colliding() == true && isJump == true:
 		isJump = false
+		canJump = true
 	if onGround.is_colliding() == false && isJump == true:
 		onTile.y += jumpWeight
 
@@ -89,4 +94,3 @@ func _process(delta):
 	if canJump == true:
 		jump()
 	onTile = move_and_slide(onTile, Vector2.UP)
-
