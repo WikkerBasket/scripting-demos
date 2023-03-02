@@ -18,7 +18,6 @@ var jumpSpeed = 900
 var shortHop = 400
 var coyoteTime = 0.2
 
-var canCoyote = false
 var isSlide = false
 var isCrouch = false
 var isWalk = true
@@ -30,6 +29,7 @@ var canJump = true
 @onready var onCeiling = $onCeiling
 
 func walk():
+	canJump = true
 	if Input.is_action_pressed("left") && onGround.is_colliding():
 		onTile.x = -speed
 		direction = Vector2.LEFT
@@ -66,11 +66,9 @@ func slide():
 		else:
 			onTile.x = lerpf(onTile.x, 0, slideFriction)
 			isSlide = false
-
 	elif Input.is_action_pressed("down") && !onGround.is_colliding():
 		canJump = false
 	else:
-		canJump = true
 		isWalk = true
 		isCrouch = false
 
@@ -81,12 +79,7 @@ func slideBoost():
 	if direction == Vector2.LEFT:
 		onTile.x = -dashSpeed
 		onTile.y = -shortHop*1.2
-	jumpFreeze()
-
-func jumpFreeze():
-	isJump = true
-	await get_tree().create_timer(10).timeout
-	isJump = false
+	isSlide = false
 
 func coyoteJump():
 	await get_tree().create_timer(coyoteTime).timeout
@@ -111,7 +104,7 @@ func jump():
 		onTile.y = shortHop
 
 func _process(delta):
-	if onGround.is_colliding() == true:
+	if is_on_floor() == true:
 		onTile.y = 0
 	else:
 		onTile.y += delta * maxGravity
@@ -123,7 +116,8 @@ func _process(delta):
 		slide()
 	if canJump == true:
 		jump()
-	print(canJump)
+	
+	print(onTile.y)
 	set_velocity(onTile)
 	set_up_direction(Vector2.UP)
 	move_and_slide()

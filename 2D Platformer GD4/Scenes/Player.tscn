@@ -23,9 +23,8 @@ scale = Vector2(10, 1)
 target_position = Vector2(0, 35)
 
 [node name="onGround" type="RayCast2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(10, 1)
-exclude_parent = false
-target_position = Vector2(0, 35)
+position = Vector2(0, 5)
+scale = Vector2(12, 1)
+target_position = Vector2(0, 30)
 
 [node name="Dash" parent="." instance=ExtResource("3")]
