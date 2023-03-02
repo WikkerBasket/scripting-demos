@@ -1,0 +1,5 @@
+res://Assets/default_env.tres
+res://Scenes/Player.tscn
+res://Scripts/Player2Dside.gd
+res://Scenes/GameScene.tscn
+res://Scenes/coyote.tscn

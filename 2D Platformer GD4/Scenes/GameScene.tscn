@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5xkbwwm3grs5"]
+
+[ext_resource type="PackedScene" uid="uid://j20lcxibx0ix" path="res://Scenes/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://oi37x5acju3r" path="res://Scenes/Platform.tscn" id="2"]
+
+[sub_resource type="PhysicsMaterial" id="1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0dkhi"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -1324.0
+offset_top = -589.0
+offset_right = 2189.0
+offset_bottom = 619.0
+color = Color(0.388235, 0.360784, 0.360784, 1)
+
+[node name="Platform" parent="." instance=ExtResource("2")]
+position = Vector2(555, 318)
+scale = Vector2(25, 1)
+physics_material_override = SubResource("1")
+
+[node name="Player" parent="." instance=ExtResource("1")]
+position = Vector2(855, -2)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera3D")
+
+[node name="Camera3D" type="Camera2D" parent="."]
+position = Vector2(855, -2)
+position_smoothing_enabled = true
+
+[node name="Platform2" parent="." instance=ExtResource("2")]
+position = Vector2(1045, 149)
+physics_material_override = SubResource("PhysicsMaterial_0dkhi")

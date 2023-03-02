@@ -1,0 +1,16 @@
+2a60927148abd1d33b818b535e306557
+::res://::1677715580
+::res://Assets/::1677715449
+default_env.tres::Environment::357466371579975676::1677715449::0::1::::<><>::
+icon.png::CompressedTexture2D::8762378363508160186::1677608616::1677707447::1::::<><>::
+::res://Scenes/::1677715449
+coyote.tscn::PackedScene::8741895558216809482::1677715449::0::1::::<><>::res://Scripts/coyote.gd
+Dash.tscn::PackedScene::-1::1677707424::0::1::::<><>::res://Scripts/Dash.gd
+GameScene.tscn::PackedScene::6926597510674416950::1677715448::0::1::::<><>::uid://j20lcxibx0ix<>uid://oi37x5acju3r
+Platform.tscn::PackedScene::1000917308551585537::1677708154::0::1::::<><>::
+Player.tscn::PackedScene::688975501596975635::1677715449::0::1::::<><>::res://Scripts/Player2Dside.gd<>uid://dw3tddyis8cec<>res://Scenes/Dash.tscn
+::res://Scripts/::1677715429
+coyote.gd::GDScript::-1::1677712873::0::1::::<>Node2D<>::
+Dash.gd::GDScript::-1::1677707424::0::1::::<>Node2D<>::
+Player2Dside.gd::GDScript::-1::1677715429::0::1::::<>CharacterBody2D<>::
+Player2DsideOld.gd::GDScript::-1::1677708065::0::1::::<>CharacterBody2D<>::

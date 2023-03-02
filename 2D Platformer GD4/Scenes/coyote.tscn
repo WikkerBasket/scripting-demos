@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwsv0iquoxf4e"]
+
+[ext_resource type="Script" path="res://Scripts/coyote.gd" id="1_yxcmv"]
+
+[node name="Coyote" type="Node2D"]
+script = ExtResource("1_yxcmv")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
