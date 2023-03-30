@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://csbd7rlh376eq"]
+
+[ext_resource type="Texture2D" uid="uid://conhxfub6uglv" path="res://Scenes/Inventory/Assets/menuPanel.png" id="1_27e40"]
+[ext_resource type="Script" path="res://Scenes/Item/item_info.gd" id="2_kohw7"]
+[ext_resource type="Texture2D" uid="uid://3trj0dj66ove" path="res://Scenes/Inventory/Assets/menuTitle.png" id="3_upc2m"]
+[ext_resource type="FontFile" uid="uid://ogncabjm0u2g" path="res://Art/ARCADECLASSIC.TTF" id="4_1ttf4"]
+
+[node name="itemInfo" type="NinePatchRect"]
+anchors_preset = -1
+anchor_left = 0.000868056
+anchor_right = 0.395833
+anchor_bottom = 0.395062
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_27e40")
+region_rect = Rect2(0.580002, 4.4012, 390.684, 196.844)
+patch_margin_left = 44
+patch_margin_top = 37
+patch_margin_right = 47
+patch_margin_bottom = 39
+script = ExtResource("2_kohw7")
+itemNamePath = NodePath("Title/title")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.0
+offset_top = -22.0
+offset_right = 163.0
+offset_bottom = 33.0
+grow_horizontal = 2
+texture = ExtResource("3_upc2m")
+patch_margin_left = 26
+patch_margin_top = 30
+patch_margin_right = 26
+patch_margin_bottom = 25
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="title" type="Label" parent="Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.00392157, 0.192157, 0.164706, 1)
+theme_override_fonts/font = ExtResource("4_1ttf4")
+theme_override_font_sizes/font_size = 35
+horizontal_alignment = 1
+vertical_alignment = 1

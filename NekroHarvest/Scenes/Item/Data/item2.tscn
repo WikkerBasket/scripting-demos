@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://blo0xueeymj5u"]
+
+[ext_resource type="Texture2D" uid="uid://q8ruhx8g4bgt" path="res://Scenes/Inventory/Assets/menuX.png" id="1_8rdta"]
+[ext_resource type="Script" path="res://Scenes/Item/item.gd" id="2_hynnu"]
+
+[node name="item" type="TextureRect"]
+texture = ExtResource("1_8rdta")
+script = ExtResource("2_hynnu")
+item_id = "test2"
+item_name = "Handle"

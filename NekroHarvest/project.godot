@@ -15,6 +15,14 @@ run/main_scene="res://Scenes/game_scene.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://Art/icon.svg"
 
+[autoload]
+
+SignalManager="*res://Scenes/Manager/signalManagers.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
