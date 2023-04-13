@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-@export var moveSpeed: float = 350
+@export var moveSpeed: float = 400
 @export var slideSpeed: float  = 650
-@export var jumpHeight: float = 150
-@export var jumpTTPeak: float = 0.4
-@export var jumpTTDescent: float = 0.35
+@export var jumpHeight: float = 200
+@export var jumpTTPeak: float = 0.5
+@export var jumpTTDescent: float = 0.4
 
 @export var jumpBufferTime: float = 8
 @export var coyoteTime: float = 0.2
@@ -38,6 +38,8 @@ func _process(delta):
 	#apply gravity
 	velocity.y += getGravity() * delta
 	#checks for lawful jumping
+	if is_on_floor() && !isCrouching:
+		canWalk = true
 	if !is_on_floor() && isJumping:
 		canJump = false
 	elif !is_on_floor() && !isJumping:
@@ -45,7 +47,7 @@ func _process(delta):
 		coyoteTimer -= delta
 	if is_on_floor() && canWalk:
 		walk()
-	if is_on_floor() && canCrouch:
+	if canCrouch:
 		crouch()
 	if canSlide && isCrouching:
 		slide()
@@ -56,10 +58,10 @@ func _process(delta):
 	elif Input.is_action_just_released("jump") && isJumping:
 		if velocity.y < 0:
 			velocity.y = (jumpGravity * delta)*0.75
-	elif Input.is_action_pressed("left") && isJumping && direction == Vector2.RIGHT:
-		velocity.x = lerpf(-moveSpeed/1.5, 0.5, delta)
-	elif Input.is_action_pressed("right") && isJumping && direction == Vector2.LEFT:
-		velocity.x = lerpf(moveSpeed/1.5, 0.5, delta)
+	elif Input.is_action_just_pressed("left") && isJumping:
+		velocity.x = lerpf(-moveSpeed/1.2, 0.5, delta)
+	elif Input.is_action_just_pressed("right") && isJumping:
+		velocity.x = lerpf(moveSpeed/1.2, 0.5, delta)
 	#jump buffer
 	if Input.is_action_just_pressed("jump") && !isCrouching:
 		jumpBufferTimer = jumpBufferTime
@@ -89,7 +91,7 @@ func _process(delta):
 	
 	set_up_direction(Vector2.UP)
 	move_and_slide()
-	
+	print(canCrouch)
 
 func walk():
 	canJump = true
@@ -107,7 +109,7 @@ func walk():
 		velocity.x = lerpf(velocity.x, 0, 0.2)
 
 func crouch():
-	if Input.is_action_pressed("down") && canCrouch:
+	if Input.is_action_pressed("down") && canCrouch && is_on_floor():
 		canWalk = false
 		canJump = false
 		canSlide = true
