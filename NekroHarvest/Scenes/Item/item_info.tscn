@@ -6,10 +6,11 @@
 [ext_resource type="FontFile" uid="uid://ogncabjm0u2g" path="res://Art/ARCADECLASSIC.TTF" id="4_1ttf4"]
 
 [node name="itemInfo" type="NinePatchRect"]
+custom_minimum_size = Vector2(0, 50)
 anchors_preset = -1
-anchor_left = 0.000868056
-anchor_right = 0.395833
-anchor_bottom = 0.395062
+anchor_left = -0.131076
+anchor_right = 0.0798611
+anchor_bottom = 0.157407
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_27e40")
@@ -23,6 +24,7 @@ itemNamePath = NodePath("Title/title")
 metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

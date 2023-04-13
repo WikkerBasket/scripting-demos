@@ -21,7 +21,7 @@ func _ready():
 
 func setInventorySize(value):
 	inventorySize = value
-	custom_minimum_size.y += 85 + (ceil(value / 4.0) - 1) * 125
+	custom_minimum_size.y += 85 + (ceil(inventorySize / 4.0) - 1) * 125
 	
 	for s in inventorySize:
 		var newSlot = inventorySlot_res.instantiate()

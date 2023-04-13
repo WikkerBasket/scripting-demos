@@ -16,4 +16,3 @@ func _ready():
 
 func _on_pressed():
 		SignalManager.inventoryOpened.emit(inventory)
-		print(inventory.slots)

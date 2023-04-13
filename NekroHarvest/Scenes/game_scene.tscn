@@ -22,6 +22,7 @@ scale = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="Player" parent="Main" instance=ExtResource("1_nrpmy")]
+bagName = "My Bag"
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Main/Player"]
 remote_path = NodePath("../../Camera2D")
@@ -55,20 +56,23 @@ offset_bottom = -35.0
 text = "Chest
 "
 script = ExtResource("5_t4rir")
-amount = 4
-chestName = "BeanBox"
+amount = 5
+chestName = "Greg"
 
 [node name="inventoryContainer" parent="UI" instance=ExtResource("2_e38vw")]
 visible = false
+offset_left = -389.0
+offset_top = -75.0
+offset_right = 391.0
+offset_bottom = -16.0
+itemInfoPath = NodePath("../itemInfo")
 
 [node name="itemInfo" parent="UI" instance=ExtResource("4_jr4nu")]
 visible = false
-anchor_right = 0.000868056
-anchor_bottom = 0.0
-offset_left = 152.0
-offset_top = 54.0
-offset_right = 243.0
-offset_bottom = 130.0
+offset_left = -45.5
+offset_top = -38.0
+offset_right = 45.5
+offset_bottom = 38.0
 
 [node name="itemInHand" type="Control" parent="UI"]
 layout_mode = 3

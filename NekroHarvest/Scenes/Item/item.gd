@@ -9,3 +9,4 @@ func pickItem():
 
 func putItem():
 	mouse_filter = Control.MOUSE_FILTER_PASS
+

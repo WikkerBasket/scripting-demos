@@ -9,15 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://crfkiyjx4jr0t" path="res://Scenes/Inventory/Assets/menuDisabled.png" id="6_g564s"]
 
 [node name="inventoryContainer" type="NinePatchRect"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -541.0
-offset_top = -173.0
-offset_right = 239.0
-offset_bottom = -23.0
+custom_minimum_size = Vector2(0, 35)
+anchors_preset = -1
+anchor_left = 0.369
+anchor_top = 0.349
+anchor_right = 0.369
+anchor_bottom = 0.349
+offset_left = -389.088
+offset_top = -75.152
+offset_right = 390.912
+offset_bottom = 74.848
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_4s81o")
@@ -31,7 +32,6 @@ script = ExtResource("2_ucttx")
 inventoryContainerPath = NodePath("inventoryContainer")
 
 [node name="inventoryContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(0, 150)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
