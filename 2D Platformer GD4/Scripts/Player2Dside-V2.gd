@@ -90,8 +90,12 @@ func _process(delta):
 			canSlide = false
 	
 	set_up_direction(Vector2.UP)
+	floor_snap_length = 40
 	move_and_slide()
-	print(canCrouch)
+	if is_on_floor():
+		var floorNormal: Vector2 = get_floor_normal()
+		var offset: float = deg_to_rad(90)
+		$Sprite2D.rotation = lerpf($Sprite2D.rotation, floorNormal.angle() + offset, 0.35)
 
 func walk():
 	canJump = true
